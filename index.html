@@ -4,18 +4,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yönləndirilir...</title>
+    <title>Redirecting...</title>
 
-    <meta http-equiv="refresh" content="0; url=pages/home.html">
+    <meta http-equiv="refresh" content="2; url=pages/home.html">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #09090b;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fafafa;
+        }
+
+        .loader-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #27272a;
+            border-top: 3px solid #fafafa;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        .loading-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #a1a1aa;
+            /* zinc-400 */
+            letter-spacing: 0.5px;
+        }
+
+        .fallback-link {
+            margin-top: 24px;
+            font-size: 12px;
+            color: #3f3f46;
+            text-decoration: none;
+        }
+
+        .fallback-link a {
+            color: #a1a1aa;
+            text-decoration: underline;
+        }
+
+        /* Fırlanma animasiyası */
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
 
 <body>
 
+    <div class="loader-container">
+        <div class="spinner"></div>
+        <p class="loading-text">Page is redirecting...</p>
+    </div>
+
+    <p class="fallback-link">
+        If the redirect doesn't occur, <a href="pages/home.html">click here</a>.
+    </p>
+
     <script>
-        window.location.href = "pages/home.html";
+        setTimeout(function () {
+            window.location.href = "pages/home.html";
+        }, 2000);
     </script>
 
-    <p>Səhifə yüklənir, əgər keçid baş vermədisə <a href="pages/home.html">bura klikləyin</a>.</p>
 </body>
 
 </html>
